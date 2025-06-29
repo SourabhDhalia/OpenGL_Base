@@ -52,7 +52,7 @@ int main()
         {
             // Poll for and process events (update the state of the window)
             glfwPollEvents();
-            glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
+            glClearColor(0.39f, 0.58f, 0.93f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT);
             glfwSwapBuffers(window);
             cout << "\r" << "App is Running...";
