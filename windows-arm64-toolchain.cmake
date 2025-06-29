@@ -1,0 +1,8 @@
+set(CMAKE_SYSTEM_NAME Windows)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
+set(CMAKE_RC_COMPILER llvm-windres)
+set(CMAKE_C_FLAGS "--target=aarch64-w64-windows-gnu")
+set(CMAKE_CXX_FLAGS "--target=aarch64-w64-windows-gnu")
+set(CMAKE_EXE_LINKER_FLAGS "--target=aarch64-w64-windows-gnu")

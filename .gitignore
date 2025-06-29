@@ -1,4 +1,16 @@
-build/
 .DS_Store
 .vscode/
+
+build/
+build-macos*/
+build-linux*/
+build-win*/
+build-android*/
+build-ios*/
+
+llvm-mingw/
+
 OPENGL_JOURNEY_EXE_APP
+OPENGL_JOURNEY_EXE_APP.app
+mac-arm-app/
+mac-x86-app/
