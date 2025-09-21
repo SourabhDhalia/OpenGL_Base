@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=OpenGLJourney
-Exec=/absolute/path/to/linux-x86-app/OPENGL_JOURNEY_EXE_APP
+Name=OGLQuickstart
+Exec=/absolute/path/to/linux-x86-app/OGLQuickstart
 Icon=/absolute/path/to/icon/opengl.png
 Type=Application
 Categories=Graphics;

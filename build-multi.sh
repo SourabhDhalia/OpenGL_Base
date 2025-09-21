@@ -18,7 +18,7 @@ case "$PLATFORM" in
             echo "Building for macOS $ARCH..."
             cmake -B $BUILD_DIR -DCMAKE_OSX_ARCHITECTURES="$ARCH" -DCMAKE_BUILD_TYPE=Release
             cmake --build $BUILD_DIR --config Release
-            echo "Built app at $BUILD_DIR/OPENGL_JOURNEY_EXE_APP"
+            echo "Built app at $BUILD_DIR/OGLQuickstart"
         else
             echo "Unsupported architecture for macOS: $ARCH"
             exit 2
@@ -35,7 +35,7 @@ case "$PLATFORM" in
                 cmake -B $BUILD_DIR -DCMAKE_BUILD_TYPE=Release
             fi
             cmake --build $BUILD_DIR --config Release
-            echo "Built app at $BUILD_DIR/OPENGL_JOURNEY_EXE_APP"
+            echo "Built app at $BUILD_DIR/OGLQuickstart"
         else
             echo "Unsupported architecture for Linux: $ARCH"
             exit 2
@@ -58,7 +58,7 @@ case "$PLATFORM" in
             echo "Cross-compiling for Windows $ARCH..."
             cmake -B $BUILD_DIR -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE -DCMAKE_BUILD_TYPE=Release
             cmake --build $BUILD_DIR --config Release
-            echo "Built Windows app at $BUILD_DIR/OPENGL_JOURNEY_EXE_APP.exe"
+            echo "Built Windows app at $BUILD_DIR/OGLQuickstart.exe"
         else
             echo "Unsupported architecture for Windows: $ARCH"
             exit 3

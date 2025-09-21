@@ -14,4 +14,4 @@ cmake -B $BUILD_DIR
 cmake --build $BUILD_DIR
 
 # Run the executable
-./OPENGL_JOURNEY_EXE_APP
+./OGLQuickstart

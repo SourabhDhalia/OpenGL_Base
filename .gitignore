@@ -9,8 +9,16 @@ build-android*/
 build-ios*/
 
 llvm-mingw/
+WinOpenGLFiles/
+gitDownloadPackages/
 
-OPENGL_JOURNEY_EXE_APP
-OPENGL_JOURNEY_EXE_APP.app
+OGLQuickstart
+OGLQuickstart.app
 mac-arm-app/
 mac-x86-app/
+
+
+ReadAndlearnBuild.md
+README.md
+
+temp/

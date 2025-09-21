@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(OPENGL_JOURNEY)
+project(OGLQuickstart)
 
 if(APPLE)
     set(MACOSX_BUNDLE_ICON_FILE opengl.icns)
@@ -18,7 +18,16 @@ endif()
 
 if(WIN32)
     enable_language(RC)
-    set(APP_ICON appicon.rc)
+    set(APP_ICON icon/opengl.ico)
+    set(GLFW3_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/WinOpenGLFiles/glfw-3.3.2.bin.WIN64/include")
+    set(GLFW3_LIBRARY "${CMAKE_SOURCE_DIR}/WinOpenGLFiles/glfw-3.3.2.bin.WIN64/lib-vc2019/glfw3.lib")  # Change lib-vc2019 to lib-vc2022 if needed
+    set(GLFW3_LIBRARIES "${GLFW3_LIBRARY}")
+    set(GLFW3_FOUND TRUE)
+    add_library(glfw STATIC IMPORTED)
+    set_target_properties(glfw PROPERTIES
+        IMPORTED_LOCATION "${GLFW3_LIBRARY}"
+        INTERFACE_INCLUDE_DIRECTORIES "${GLFW3_INCLUDE_DIR}"
+    )
 endif()
 
 
@@ -66,34 +75,66 @@ else()
 endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/${PLATFORM_FOLDER})
 
-add_executable(OPENGL_JOURNEY_EXE_APP
+set(APP_SOURCES
     main.cpp
     external/glad/src/glad.c
-    ${APP_ICON}
 )
 
-target_include_directories(OPENGL_JOURNEY_EXE_APP PRIVATE
+if(APP_ICON)
+    list(APPEND APP_SOURCES ${APP_ICON})
+endif()
+
+add_executable(OGLQuickstart ${APP_SOURCES})
+
+target_include_directories(OGLQuickstart PRIVATE
     external/glad/include
+    src
 )
 if(APPLE AND DEFINED GLFW3_INCLUDE_DIR)
-    target_include_directories(OPENGL_JOURNEY_EXE_APP PRIVATE ${GLFW3_INCLUDE_DIR})
+    target_include_directories(OGLQuickstart PRIVATE ${GLFW3_INCLUDE_DIR})
 endif()
 
-if(APPLE)
-    if(DEFINED GLFW3_LIBRARIES)
-        target_link_libraries(OPENGL_JOURNEY_EXE_APP PRIVATE ${GLFW3_LIBRARIES} "-framework OpenGL")
-    else()
-        target_link_libraries(OPENGL_JOURNEY_EXE_APP PRIVATE glfw "-framework OpenGL")
-    endif()
-elseif(WIN32)
-    target_link_libraries(OPENGL_JOURNEY_EXE_APP PRIVATE glfw OpenGL::GL)
+set(GLFW_LINK_DEPENDENCY "")
+if(TARGET glfw)
+    set(GLFW_LINK_DEPENDENCY glfw)
+elseif(TARGET GLFW3::GLFW)
+    set(GLFW_LINK_DEPENDENCY GLFW3::GLFW)
+elseif(DEFINED GLFW3_LIBRARIES)
+    set(GLFW_LINK_DEPENDENCY ${GLFW3_LIBRARIES})
 else()
-    target_link_libraries(OPENGL_JOURNEY_EXE_APP PRIVATE glfw OpenGL::GL)
+    message(FATAL_ERROR "Unable to determine GLFW library to link against")
 endif()
 
-target_compile_features(OPENGL_JOURNEY_EXE_APP PRIVATE cxx_std_17)
+target_link_libraries(OGLQuickstart PRIVATE ${GLFW_LINK_DEPENDENCY} OpenGL::GL)
 
-set_target_properties(OPENGL_JOURNEY_EXE_APP PROPERTIES
+target_compile_features(OGLQuickstart PRIVATE cxx_std_17)
+
+if(WIN32)
+  set_target_properties(OGLQuickstart PROPERTIES
+    SUFFIX ".exe"
+    RESOURCE "${APP_ICON}"
+  )
+elseif(APPLE)
+  set_target_properties(OGLQuickstart PROPERTIES
+    MACOSX_BUNDLE_BUNDLE_NAME "OGLQuickstart"
+    MACOSX_BUNDLE_BUNDLE_VERSION "1.0.0"
+    MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0.0"
+    MACOSX_BUNDLE_GUI_IDENTIFIER "com.example.oglquickstart"
+    MACOSX_BUNDLE_ICON_FILE opengl.icns
+    RESOURCE "${APP_ICON}"
+  )
+elseif(UNIX)
+  set_target_properties(OGLQuickstart PROPERTIES
+    OUTPUT_NAME "OGLQuickstart"
+    VERSION "1.0.0"
+    SOVERSION "1"
+    RESOURCE "${APP_ICON}"
+  )
+# else()
+#   # Optional: handle other platforms or default
+endif()
+
+set_target_properties(OGLQuickstart PROPERTIES
     MACOSX_BUNDLE TRUE
     MACOSX_BUNDLE_ICON_FILE opengl.icns
     RESOURCE "${APP_ICON}"

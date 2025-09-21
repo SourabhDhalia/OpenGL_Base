@@ -17,10 +17,10 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow *window = glfwCreateWindow(800, 600, "OpenGL Journey", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(800, 600, "OGLQuickstart", nullptr, nullptr);
     try
     {
-        cout << "Hello, OpenGL Journey!" << endl;
+        cout << "Hello, OGLQuickstart!" << endl;
         cout << "App Started..." << endl;
 
         // Check if the window was created successfully
@@ -55,7 +55,7 @@ int main()
             glClearColor(0.39f, 0.58f, 0.93f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT);
             glfwSwapBuffers(window);
-            cout << "\r" << "App is Running...";
+            cout << "\r" << "OGLQuickstart is running...";
         }
     }
     catch (const std::exception &e)
