@@ -14,4 +14,4 @@ cmake -B $BUILD_DIR
 cmake --build $BUILD_DIR
 
 # Run the executable
-./OGLQuickstart
+./mac-x86-app/OGLQuickstart.app/Contents/MacOS/OGLQuickstart
