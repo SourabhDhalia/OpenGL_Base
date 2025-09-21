@@ -44,21 +44,6 @@ Refer to the [Project Guide](docs/ProjectGuide.md) or the new [Wiki pages](docs/
 3. Drop reusable headers into `src/`.
 4. Replace assets inside `icon/` / `icon.iconset/` if you ship desktop bundles.
 
-## Working With GPT Assistants
-- Treat this repo as a clean AI-friendly template: minimal dependencies, clear entry points (`main.cpp`, `shaders/`, `src/`).
-- Ask your assistant to scaffold new rendering passes, input handling, or asset loaders—then slot the generated files into `APP_SOURCES` and rebuild.
-- Use the docs in `docs/wiki/` as prompts for automation (e.g., have GPT generate platform-specific scripts or CI jobs based on those pages).
-- Keep generated binaries out of Git; let GPT help update `.gitignore` or packaging scripts when requirements change.
-
-## Contributing / Using as a Template
-- Keep pull requests focused on source and configuration changes.
-- Do not commit generated binaries, build folders, or large toolchains (`llvm-mingw/`).
-- Document new build requirements in the guide under `docs/` so users on every platform can follow along.
-
-Happy hacking, and feel free to extend this repo into your own OpenGL journey!
-
-
-
 # OpenGL_Base
 
 A simple project to start learning OpenGL, add to your own projects, and improve as you go.
