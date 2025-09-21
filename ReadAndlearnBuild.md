@@ -1,4 +1,4 @@
-# OpenGLJourney: Cross-Platform OpenGL App
+# OGLQuickstart: Cross-Platform OpenGL App
 
 This project demonstrates a robust, portable OpenGL application that can be built for **macOS**, **Linux**, and **Windows** on both **x86_64** and **arm64** architectures, all from a single codebase.  
 Toolchain files and scripts are provided for seamless cross-compilation.
@@ -44,8 +44,8 @@ Visual Studio or MinGW-w64
 vcpkg (optional, for dependencies)
 Installation
 Clone the repository
-git clone https://github.com/yourusername/OpenGLJourney.git
-cd OpenGLJourney
+git clone https://github.com/yourusername/OGLQuickstart.git
+cd OGLQuickstart
 (Optional, for Windows arm64 cross-compilation on macOS)
 
 Install prerequisites:
@@ -85,13 +85,13 @@ build-windows-x86_64, build-windows-arm64
 Running
 macOS:
 Run the binary directly:
-OPENGL_JOURNEY_EXE_APP or OPENGL_JOURNEY_EXE_APP
+OGLQuickstart or OGLQuickstart
 Linux:
 Transfer and run on a Linux machine/VM:
-./linux-x86-app/OPENGL_JOURNEY_EXE_APP or ./linux-arm-app/OPENGL_JOURNEY_EXE_APP
+./linux-x86-app/OGLQuickstart or ./linux-arm-app/OGLQuickstart
 Windows:
 Transfer and run on a Windows machine/VM:
-OPENGL_JOURNEY_EXE_APP.exe in the appropriate build folder.
+OGLQuickstart.exe in the appropriate build folder.
 How It Works
 CMakeLists.txt detects the platform and architecture, sets output folders, and links the correct libraries.
 Toolchain files tell CMake which compiler and system root to use for cross-compilation.
