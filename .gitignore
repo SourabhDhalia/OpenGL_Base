@@ -16,7 +16,7 @@ OGLQuickstart
 OGLQuickstart.app
 mac-arm-app/
 mac-x86-app/
-
+.DS_Store
 
 ReadAndlearnBuild.md
 README.md
