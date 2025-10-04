@@ -122,8 +122,8 @@ GPU Hardware (executes commands, renders pixels)
 ## Build Steps Checklist (All Platforms)
 - Ensure GLFW and GLAD are available (this repo includes GLAD source; GLFW is external).
 - Configure with CMake for your platform/arch; when cross‑compiling, set `-DCMAKE_TOOLCHAIN_FILE=` to a provided toolchain:
-  - Windows cross: `windows-*-toolchain.cmake`
-  - Linux cross: `linux-*-toolchain.cmake`
+  - Windows cross: `cmake/toolchains/windows-*-toolchain.cmake`
+  - Linux cross: `cmake/toolchains/linux-*-toolchain.cmake`
 - Keep runtime assets available (e.g., copy `shaders/` next to the app). Post‑build copy snippet:
   ```cmake
   add_custom_command(TARGET OGLQuickstart POST_BUILD

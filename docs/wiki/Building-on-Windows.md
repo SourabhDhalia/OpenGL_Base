@@ -23,10 +23,10 @@ cmake --build build-windows-x86_64 --config Release
 
 ## Manual build with LLVM/MinGW
 ```powershell
-cmake -B build-windows-mingw -S . -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE=windows-x86_64-toolchain.cmake
+cmake -B build-windows-mingw -S . -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/windows-x86_64-toolchain.cmake
 cmake --build build-windows-mingw
 ```
 
 ## Troubleshooting
-- **GLFW library missing:** verify the paths in `windows-*-toolchain.cmake` point to your GLFW SDK.
+- **GLFW library missing:** verify the paths in `cmake/toolchains/windows-*-toolchain.cmake` point to your GLFW SDK.
 - **Linker errors with MSVC:** ensure you’re building all dependent libraries (GLFW, OpenGL) for the same architecture (x64 or arm64).

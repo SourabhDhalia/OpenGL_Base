@@ -5,7 +5,7 @@ Keep the template lightweight by versioning only source code, configuration, and
 ## Do Commit
 - `main.cpp`, `src/`
 - `shaders/`
-- `CMakeLists.txt`, toolchain files (`linux-*.cmake`, `windows-*.cmake`)
+- `CMakeLists.txt`, toolchain files (`cmake/toolchains/linux-*.cmake`, `cmake/toolchains/windows-*.cmake`)
 - `external/` (GLAD source)
 - Scripts (`build-multi.sh`, platform helpers)
 - Documentation (`README.md`, `docs/wiki/`)

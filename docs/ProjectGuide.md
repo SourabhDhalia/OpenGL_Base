@@ -72,7 +72,7 @@ cmake --build build-linux-x86_64
 ./build-linux-x86_64/OGLQuickstart
 ```
 
-Use the provided toolchain files (`linux-arm64-toolchain.cmake`, `windows-arm64-toolchain.cmake`, etc.) when cross-compiling.
+Use the provided toolchain files (`cmake/toolchains/linux-arm64-toolchain.cmake`, `cmake/toolchains/windows-arm64-toolchain.cmake`, etc.) when cross-compiling.
 
 ## 6. Customising for Your Project
 

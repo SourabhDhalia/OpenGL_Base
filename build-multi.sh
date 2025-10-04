@@ -26,7 +26,7 @@ case "$PLATFORM" in
         ;;
     linux)
         if [[ "$ARCH" == "arm64" || "$ARCH" == "x86_64" ]]; then
-            TOOLCHAIN_FILE="linux-${ARCH}-toolchain.cmake"
+            TOOLCHAIN_FILE="cmake/toolchains/linux-${ARCH}-toolchain.cmake"
             if [[ -f "$TOOLCHAIN_FILE" ]]; then
                 echo "Cross-compiling for Linux $ARCH..."
                 cmake -B $BUILD_DIR -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE -DCMAKE_BUILD_TYPE=Release
@@ -43,7 +43,7 @@ case "$PLATFORM" in
         ;;
     windows)
         if [[ "$ARCH" == "x86_64" || "$ARCH" == "arm64" ]]; then
-            TOOLCHAIN_FILE="windows-${ARCH}-toolchain.cmake"
+            TOOLCHAIN_FILE="cmake/toolchains/windows-${ARCH}-toolchain.cmake"
             if [[ ! -f "$TOOLCHAIN_FILE" ]]; then
                 echo "Toolchain file $TOOLCHAIN_FILE not found!"
                 exit 3
