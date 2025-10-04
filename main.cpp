@@ -52,7 +52,9 @@ int main()
         {
             // Poll for and process events (update the state of the window)
             glfwPollEvents();
+            //set background color and clear the screen
             glClearColor(0.39f, 0.58f, 0.93f, 0.0f);
+            //clear the screen
             glClear(GL_COLOR_BUFFER_BIT);
             glfwSwapBuffers(window);
             cout << "\r" << "OGLQuickstart is running...";

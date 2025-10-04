@@ -24,7 +24,7 @@ cmake --build build-linux-x86_64
 ./build-linux-x86_64/OGLQuickstart
 ```
 
-For arm64 cross-compiles, include `-DCMAKE_TOOLCHAIN_FILE=linux-arm64-toolchain.cmake`.
+For arm64 cross-compiles, include `-DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/linux-arm64-toolchain.cmake`.
 
 ## Troubleshooting
 - **GLFW not found:** install `libglfw3-dev` or build GLFW from source and set `GLFW3_DIR` in the environment.
