@@ -1,4 +1,4 @@
-# OGLQuickstart Base Project
+# OGLQuickstart Base Project cross-platform 
 
 A cross-platform starter for OpenGL projects using CMake, GLFW, and GLAD. The goal is to give you a clean foundation you can clone, customise, and build on macOS, Windows, or Linux.
 
